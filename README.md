@@ -1,3 +1,10 @@
+**Example usage**
+ ```sh
+OMISE_PUBLIC_KEY=<SECRET> OMISE_SECRET_KEY=<SECRET> go run cmd/gotamboon/main.go data/fng.1000-3.csv.rot128
+ ```
+
+------------------------------------------------------------------
+
 # GO-TAMBOON ไปทำบุญ
 
 This is a small challenge project to see how good you are with Go. Included in this
@@ -67,10 +74,3 @@ done.
  [0]: https://www.omise.co/charges-api
  [1]: https://en.wikipedia.org/wiki/Caesar_cipher
  [2]: https://play.golang.org/p/dCWYyWPHwj4
-
- ------------------------------------------------------------------
-
-**Example usage**
- ```sh
-OMISE_PUBLIC_KEY=<SECRET> OMISE_SECRET_KEY=<SECRET> go run cmd/gotamboon/main.go data/fng.1000-3.csv.rot128
- ```
