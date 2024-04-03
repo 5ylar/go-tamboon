@@ -1,6 +1,7 @@
 **Example usage**
  ```sh
-OMISE_PUBLIC_KEY=<SECRET> OMISE_SECRET_KEY=<SECRET> go run cmd/gotamboon/main.go data/fng.1000-3.csv.rot128
+go build -o ./bin/ ./cmd/*
+OMISE_PUBLIC_KEY=<SECRET> OMISE_SECRET_KEY=<SECRET> ./bin/gotamboon data/fng.1000-3.csv.rot128
  ```
 
 ------------------------------------------------------------------
