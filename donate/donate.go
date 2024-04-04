@@ -144,10 +144,6 @@ func (d *Donation) Donate(ctx context.Context, concurrent int, donators []Donato
 		hasCancelledSignal = true
 
 		log.Println("[WARN] donation cancelling")
-		time.Sleep(time.Second * 2)
-
-		close(donatorsCh)
-		close(rateLimitCh)
 	}()
 
 	var wg sync.WaitGroup
@@ -155,7 +151,7 @@ func (d *Donation) Donate(ctx context.Context, concurrent int, donators []Donato
 	go func() {
 		for _, donator := range donators {
 			if hasCancelledSignal {
-				return // don't need to wait or close channels
+				break
 			}
 
 			donatorsCh <- donator
