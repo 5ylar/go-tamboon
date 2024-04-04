@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"fmt"
 	"go-tamboon/conf"
@@ -33,7 +32,7 @@ func main() {
 
 	filepath := os.Args[1]
 
-	b, err := os.ReadFile(filepath)
+	fileReader, err := os.Open(filepath)
 
 	if err != nil {
 		panic(err)
@@ -49,7 +48,7 @@ func main() {
 
 	donation := donate.NewDonation(omiseClient)
 
-	donators, err := donation.DecryptDonators(bytes.NewReader(b))
+	donators, err := donation.DecryptDonators(fileReader)
 
 	if err != nil {
 		panic(err)
@@ -68,7 +67,7 @@ func main() {
 	}
 
 	fmt.Printf(
-        `
+		`
             total received: THB  %.2f
       successfully donated: THB  %.2f
            faulty donation: THB  %.2f
